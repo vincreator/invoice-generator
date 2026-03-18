@@ -1,9 +1,8 @@
-import { Copy, Plus, Trash2 } from 'lucide-react'
+import { Plus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { useLanguage } from '@/lib/LanguageContext'
-import { ITEM_TYPES } from '../types'
+import { ItemCard } from './ItemCard'
 
 import type { InvoiceItem } from '../types'
 
@@ -38,51 +37,20 @@ export function ItemsSection({
 
       <div className="item-list">
         {items.map((item) => (
-          <div key={item.id} className="item-row">
-            <Input
-              value={item.description}
-              onChange={(e) => onUpdate(item.id, 'description', e.target.value)}
-              placeholder={t('items.description')}
-              className="h-10"
-            />
-            <select
-              value={item.type}
-              onChange={(e) => onUpdate(item.id, 'type', e.target.value)}
-              className="h-10 rounded-lg border border-input bg-white px-2 text-sm"
-            >
-              {ITEM_TYPES.map((type) => (
-                <option key={type} value={type}>
-                  {t(`items.types.${type}`)}
-                </option>
-              ))}
-            </select>
-            <Input
-              type="number"
-              min={1}
-              value={item.quantity}
-              onChange={(e) => onUpdate(item.id, 'quantity', e.target.value)}
-              placeholder={t('items.quantity')}
-              className="h-10"
-            />
-            <Input
-              type="number"
-              min={0}
-              value={item.rate}
-              onChange={(e) => onUpdate(item.id, 'rate', e.target.value)}
-              placeholder={t('items.rate')}
-              className="h-10"
-            />
-            <Button type="button" variant="destructive" onClick={() => onRemove(item.id)} className="h-10 rounded-xl">
-              <Trash2 className="size-4" />
-              {t('items.delete')}
-            </Button>
-            <Button type="button" variant="outline" onClick={() => onDuplicate(item.id)} className="h-10 rounded-xl">
-              <Copy className="size-4" />
-              {t('items.duplicate')}
-            </Button>
-            <div className="line-total">{formatIdr(item.quantity * item.rate)}</div>
-          </div>
+          <ItemCard
+            key={item.id}
+            item={item}
+            onUpdate={onUpdate}
+            onDuplicate={onDuplicate}
+            onRemove={onRemove}
+            formatIdr={formatIdr}
+          />
         ))}
+        {items.length === 0 && (
+          <div className="item-empty-state">
+            <p>{t('items.title')}: {t('validation.itemsRequired')}</p>
+          </div>
+        )}
       </div>
     </>
   )

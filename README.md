@@ -58,6 +58,22 @@ npm run dev
 
 The application will be available at `http://localhost:5173` (or another port if 5173 is in use).
 
+### Adding and Editing Items
+
+**Improved Item Management:**
+- Click "Add Item" to add a new invoice line item
+- Each item is displayed as a **card with summary** showing:
+  - Item description
+  - Billing type (Hourly, Product, or Service)
+  - Quantity × Rate = Total amount
+- Click on any card to **expand** and get full access to edit all fields:
+  - Type selector with three options
+  - Quantity and Rate fields
+  - Real-time amount calculation display
+  - Duplicate and Delete buttons
+- Compact, clean interface that's easy to read at a glance
+- More spacious editing form when expanded (no more cramped input fields!)
+
 ### Building for Production
 
 Build the application for production:
