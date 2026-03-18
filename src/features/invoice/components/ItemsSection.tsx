@@ -3,6 +3,7 @@ import { Copy, Plus, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useLanguage } from '@/lib/LanguageContext'
+import { ITEM_TYPES } from '../types'
 
 import type { InvoiceItem } from '../types'
 
@@ -44,6 +45,17 @@ export function ItemsSection({
               placeholder={t('items.description')}
               className="h-10"
             />
+            <select
+              value={item.type}
+              onChange={(e) => onUpdate(item.id, 'type', e.target.value)}
+              className="h-10 rounded-lg border border-input bg-white px-2 text-sm"
+            >
+              {ITEM_TYPES.map((type) => (
+                <option key={type} value={type}>
+                  {t(`items.types.${type}`)}
+                </option>
+              ))}
+            </select>
             <Input
               type="number"
               min={1}

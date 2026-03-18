@@ -27,8 +27,7 @@ A modern, web-based invoice generator application built with React and TypeScrip
 - � **Bilingual Support** (English & Indonesian)
 - �🎨 Modern, responsive UI design
 - ✅ Form validation and error handling
-- 🔧 Toolbar with quick actions
-
+- 🔧 Toolbar with quick actions- 🏷️ **Multiple Billing Models**: Support for Hourly, Product, and Service billing types
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -84,6 +83,43 @@ Check code quality with ESLint:
 ```bash
 npm run lint
 ```
+
+## Billing Models
+
+The invoice generator supports multiple billing types for flexibility in invoicing:
+
+### Available Billing Types
+
+1. **Hourly** (Jam Kerja)
+   - Ideal for time-based services
+   - Shows "Total Hours" summary
+   - Use for tracking work hours on projects
+
+2. **Product** (Barang)
+   - Ideal for selling goods or merchandise
+   - Shows "Total Products" summary
+   - Use for physical items or inventory
+
+3. **Service** (Layanan)
+   - Ideal for service-based work
+   - Shows "Total Services" summary
+   - Use for service deliverables
+
+### How to Use Different Billing Types
+
+1. Click "Add Item" to add a new line item
+2. Select the appropriate billing type from the dropdown (Hourly, Product, or Service)
+3. Enter the description, quantity, and rate
+4. The invoice summary will automatically show the correct totals based on item types
+5. Items of different types can be mixed in a single invoice
+
+### Smart Invoice Summary
+
+- Invoices automatically display only the relevant totals based on item types used
+- If using hourly items: "Total Hours" is displayed
+- If using product items: "Total Products" is displayed
+- If using service items: "Total Services" is displayed
+- The system handles multi-type invoices intelligently
 
 ## Language Support
 

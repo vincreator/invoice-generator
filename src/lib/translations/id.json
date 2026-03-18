@@ -29,7 +29,13 @@
     "rate": "Rate",
     "amount": "Jumlah",
     "delete": "Hapus",
-    "duplicate": "Duplikat"
+    "duplicate": "Duplikat",
+    "type": "Tipe",
+    "types": {
+      "hourly": "Jam Kerja",
+      "product": "Barang",
+      "service": "Layanan"
+    }
   },
   "payment": {
     "tax": "Pajak (%)",
@@ -53,6 +59,10 @@
     "period": "Periode",
     "overview": "Ringkasan",
     "totalHours": "Total Jam",
+    "totalProducts": "Total Barang",
+    "totalServices": "Total Layanan",
+    "totalItems": "Total Item",
+    "itemBreakdown": "Rincian Item",
     "subtotal": "Subtotal",
     "tax": "Pajak",
     "discount": "Diskon",

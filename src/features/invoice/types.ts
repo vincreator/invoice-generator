@@ -16,11 +16,15 @@ export const STATUS_OPTIONS = STATUS_OPTIONS_ID
 
 export type InvoiceStatus = (typeof STATUS_OPTIONS)[number]
 
+export const ITEM_TYPES = ['hourly', 'product', 'service'] as const
+export type ItemType = (typeof ITEM_TYPES)[number]
+
 export type InvoiceItem = {
   id: number
   description: string
   quantity: number
   rate: number
+  type: ItemType
 }
 
 export type InvoiceState = {

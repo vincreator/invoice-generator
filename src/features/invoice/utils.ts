@@ -1,4 +1,4 @@
-import type { InvoiceState } from './types'
+import type { InvoiceState, ItemType } from './types'
 
 export const STORAGE_KEY = 'invoice-generator-draft-v1'
 
@@ -48,4 +48,19 @@ export const getStatusClassName = (status: string) => {
   if (status === 'Dibayar Sebagian') return 'status-partial'
   if (status === 'Jatuh Tempo') return 'status-due'
   return 'status-pending'
+}
+
+// Calculate quantity totals by item type
+export const getItemTypeQuantities = (items: InvoiceState['items']) => {
+  const quantities: Record<ItemType, number> = {
+    'hourly': 0,
+    'product': 0,
+    'service': 0,
+  }
+
+  items.forEach((item) => {
+    quantities[item.type] = (quantities[item.type] || 0) + item.quantity
+  })
+
+  return quantities
 }

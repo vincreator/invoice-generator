@@ -10,6 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { useLanguage } from '@/lib/LanguageContext'
+import { getItemTypeQuantities } from '../utils'
 
 import type { InvoiceState } from '../types'
 
@@ -37,6 +38,7 @@ export function InvoicePreview({
   getStatusClassName,
 }: InvoicePreviewProps) {
   const { t } = useLanguage()
+  const itemTypeQuantities = getItemTypeQuantities(invoice.items)
 
   return (
     <section className="panel preview-wrap">
@@ -76,7 +78,18 @@ export function InvoicePreview({
           <Card className="card border-0 py-0 ring-0">
             <CardContent className="space-y-1 px-0">
               <p className="card-title">{t('summary.overview')}</p>
-              <p>{t('summary.totalHours')}: {totalHours} jam</p>
+              {itemTypeQuantities['hourly'] > 0 && (
+                <p>{t('summary.totalHours')}: {itemTypeQuantities['hourly']}</p>
+              )}
+              {itemTypeQuantities['product'] > 0 && (
+                <p>{t('summary.totalProducts')}: {itemTypeQuantities['product']}</p>
+              )}
+              {itemTypeQuantities['service'] > 0 && (
+                <p>{t('summary.totalServices')}: {itemTypeQuantities['service']}</p>
+              )}
+              {(itemTypeQuantities['hourly'] === 0 && itemTypeQuantities['product'] === 0 && itemTypeQuantities['service'] === 0) && (
+                <p>{t('summary.totalItems')}: {totalHours}</p>
+              )}
               <p>{t('summary.subtotal')}: {formatIdr(subtotal)}</p>
               <p>{t('summary.tax')}: {formatIdr(taxAmount)}</p>
               <p>{t('summary.discount')}: {formatIdr(invoice.discount)}</p>
@@ -89,6 +102,7 @@ export function InvoicePreview({
           <TableHeader>
             <TableRow>
               <TableHead>{t('items.description')}</TableHead>
+              <TableHead>{t('items.type')}</TableHead>
               <TableHead>{t('items.quantity')}</TableHead>
               <TableHead>{t('items.rate')}</TableHead>
               <TableHead>{t('items.amount')}</TableHead>
@@ -98,6 +112,7 @@ export function InvoicePreview({
             {invoice.items.map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.description || '-'}</TableCell>
+                <TableCell className="text-sm">{item.type}</TableCell>
                 <TableCell>{item.quantity}</TableCell>
                 <TableCell>{formatIdr(item.rate)}</TableCell>
                 <TableCell>{formatIdr(item.quantity * item.rate)}</TableCell>

@@ -29,7 +29,13 @@
     "rate": "Rate",
     "amount": "Amount",
     "delete": "Delete",
-    "duplicate": "Duplicate"
+    "duplicate": "Duplicate",
+    "type": "Type",
+    "types": {
+      "hourly": "Hourly",
+      "product": "Product",
+      "service": "Service"
+    }
   },
   "payment": {
     "tax": "Tax (%)",
@@ -53,6 +59,10 @@
     "period": "Period",
     "overview": "Summary",
     "totalHours": "Total Hours",
+    "totalProducts": "Total Products",
+    "totalServices": "Total Services",
+    "totalItems": "Total Items",
+    "itemBreakdown": "Item Breakdown",
     "subtotal": "Subtotal",
     "tax": "Tax",
     "discount": "Discount",

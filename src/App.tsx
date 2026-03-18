@@ -95,6 +95,7 @@ function App() {
           description: '',
           quantity: 1,
           rate: 0,
+          type: 'hourly',
         },
       ],
     }))
