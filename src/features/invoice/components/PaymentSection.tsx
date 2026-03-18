@@ -1,5 +1,5 @@
 import { Input } from '@/components/ui/input'
-
+import { useLanguage } from '@/lib/LanguageContext'
 import type { InvoiceState } from '../types'
 
 type PaymentSectionProps = {
@@ -9,11 +9,13 @@ type PaymentSectionProps = {
 }
 
 export function PaymentSection({ invoice, updateField, sanitizeNumber }: PaymentSectionProps) {
+  const { t } = useLanguage()
+
   return (
     <>
       <div className="grid-two">
         <label>
-          Pajak (%)
+          {t('payment.tax')}
           <Input
             type="number"
             min={0}
@@ -23,7 +25,7 @@ export function PaymentSection({ invoice, updateField, sanitizeNumber }: Payment
           />
         </label>
         <label>
-          Diskon (Rp)
+          {t('payment.discount')}
           <Input
             type="number"
             min={0}
@@ -33,17 +35,17 @@ export function PaymentSection({ invoice, updateField, sanitizeNumber }: Payment
           />
         </label>
         <label>
-          Bank
+          {t('payment.bank')}
           <Input value={invoice.bankName} onChange={(e) => updateField('bankName', e.target.value)} className="h-10" />
         </label>
         <label>
-          No. Rekening
+          {t('payment.accountNumber')}
           <Input value={invoice.bankAccount} onChange={(e) => updateField('bankAccount', e.target.value)} className="h-10" />
         </label>
       </div>
 
       <label>
-        Atas Nama
+        {t('payment.accountHolder')}
         <Input value={invoice.accountHolder} onChange={(e) => updateField('accountHolder', e.target.value)} className="h-10" />
       </label>
     </>

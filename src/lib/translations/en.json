@@ -1,0 +1,79 @@
+{
+  "app": {
+    "title": "Vite Invoice Studio",
+    "subtitle": "Fill in data on the left, live preview on the right, then export to PDF."
+  },
+  "invoice": {
+    "title": "INVOICE",
+    "subtitle": "Web Development Invoice",
+    "invoiceNumber": "Invoice Number",
+    "status": "Status",
+    "issueDate": "Issue Date",
+    "dueDate": "Due Date",
+    "issuedOn": "Issued On:",
+    "dueOn": "Due On:",
+    "overdue": "Overdue"
+  },
+  "client": {
+    "from": "From (Name)",
+    "role": "Position",
+    "billTo": "Bill To",
+    "project": "Project",
+    "period": "Period"
+  },
+  "items": {
+    "title": "Item List",
+    "addButton": "Add Item",
+    "description": "Description",
+    "quantity": "Qty",
+    "rate": "Rate",
+    "amount": "Amount",
+    "delete": "Delete",
+    "duplicate": "Duplicate"
+  },
+  "payment": {
+    "tax": "Tax (%)",
+    "discount": "Discount (Rp)",
+    "bank": "Bank",
+    "accountNumber": "Account Number",
+    "accountHolder": "Account Holder"
+  },
+  "notes": "Notes",
+  "validation": {
+    "title": "Needs to be Fixed First",
+    "invoiceNumberRequired": "Invoice number is required",
+    "nameRequired": "Name (From) is required",
+    "billToRequired": "Bill To is required",
+    "itemsRequired": "At least one item is required",
+    "itemsValid": "All items must have description, quantity, and rate"
+  },
+  "summary": {
+    "billTo": "Bill To",
+    "project": "Project",
+    "period": "Period",
+    "overview": "Summary",
+    "totalHours": "Total Hours",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "discount": "Discount",
+    "total": "Total"
+  },
+  "payment_info": {
+    "title": "Payment Instructions",
+    "bank": "Bank",
+    "accountNumber": "Account Number",
+    "accountHolder": "Account Holder",
+    "totalPayment": "Total Payment"
+  },
+  "footer": "This document is created digitally and is valid without a wet signature.",
+  "buttons": {
+    "print": "Print",
+    "export": "Export PDF"
+  },
+  "status": {
+    "pending": "Pending Payment",
+    "partial": "Partially Paid",
+    "paid": "Paid",
+    "overdue": "Overdue"
+  }
+}

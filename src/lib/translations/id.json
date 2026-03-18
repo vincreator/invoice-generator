@@ -1,0 +1,79 @@
+{
+  "app": {
+    "title": "Vite Invoice Studio",
+    "subtitle": "Isi data di kiri, preview live di kanan, lalu export ke PDF."
+  },
+  "invoice": {
+    "title": "INVOICE",
+    "subtitle": "Web Development Invoice",
+    "invoiceNumber": "Nomor Invoice",
+    "status": "Status",
+    "issueDate": "Tanggal Terbit",
+    "dueDate": "Jatuh Tempo",
+    "issuedOn": "Tanggal Terbit:",
+    "dueOn": "Jatuh Tempo:",
+    "overdue": "Lewat Tempo"
+  },
+  "client": {
+    "from": "Dari (Nama)",
+    "role": "Jabatan",
+    "billTo": "Ditagihkan Kepada",
+    "project": "Proyek",
+    "period": "Periode"
+  },
+  "items": {
+    "title": "Daftar Item",
+    "addButton": "Tambah Item",
+    "description": "Deskripsi",
+    "quantity": "Qty",
+    "rate": "Rate",
+    "amount": "Jumlah",
+    "delete": "Hapus",
+    "duplicate": "Duplikat"
+  },
+  "payment": {
+    "tax": "Pajak (%)",
+    "discount": "Diskon (Rp)",
+    "bank": "Bank",
+    "accountNumber": "No. Rekening",
+    "accountHolder": "Atas Nama"
+  },
+  "notes": "Catatan",
+  "validation": {
+    "title": "Perlu Diperbaiki Dulu",
+    "invoiceNumberRequired": "Nomor invoice harus diisi",
+    "nameRequired": "Nama (Dari) harus diisi",
+    "billToRequired": "Ditagihkan Kepada harus diisi",
+    "itemsRequired": "Minimal satu item harus ditambahkan",
+    "itemsValid": "Semua item harus memiliki deskripsi, jumlah, dan rate"
+  },
+  "summary": {
+    "billTo": "Ditagihkan Kepada",
+    "project": "Proyek",
+    "period": "Periode",
+    "overview": "Ringkasan",
+    "totalHours": "Total Jam",
+    "subtotal": "Subtotal",
+    "tax": "Pajak",
+    "discount": "Diskon",
+    "total": "Total"
+  },
+  "payment_info": {
+    "title": "Instruksi Pembayaran",
+    "bank": "Bank",
+    "accountNumber": "No. Rekening",
+    "accountHolder": "Atas Nama",
+    "totalPayment": "Total Pembayaran"
+  },
+  "footer": "Dokumen ini dibuat secara digital dan sah tanpa tanda tangan basah.",
+  "buttons": {
+    "print": "Print",
+    "export": "Export PDF"
+  },
+  "status": {
+    "pending": "Menunggu Pembayaran",
+    "partial": "Dibayar Sebagian",
+    "paid": "Lunas",
+    "overdue": "Jatuh Tempo"
+  }
+}

@@ -2,6 +2,7 @@ import { Copy, Plus, Trash2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useLanguage } from '@/lib/LanguageContext'
 
 import type { InvoiceItem } from '../types'
 
@@ -22,13 +23,15 @@ export function ItemsSection({
   onRemove,
   formatIdr,
 }: ItemsSectionProps) {
+  const { t } = useLanguage()
+
   return (
     <>
       <div className="item-header">
-        <h2>Daftar Item</h2>
+        <h2>{t('items.title')}</h2>
         <Button type="button" variant="outline" onClick={onAdd} className="h-9 rounded-xl border-teal-200 text-teal-700">
           <Plus className="size-4" />
-          Tambah Item
+          {t('items.addButton')}
         </Button>
       </div>
 
@@ -38,7 +41,7 @@ export function ItemsSection({
             <Input
               value={item.description}
               onChange={(e) => onUpdate(item.id, 'description', e.target.value)}
-              placeholder="Deskripsi"
+              placeholder={t('items.description')}
               className="h-10"
             />
             <Input
@@ -46,7 +49,7 @@ export function ItemsSection({
               min={1}
               value={item.quantity}
               onChange={(e) => onUpdate(item.id, 'quantity', e.target.value)}
-              placeholder="Qty"
+              placeholder={t('items.quantity')}
               className="h-10"
             />
             <Input
@@ -54,16 +57,16 @@ export function ItemsSection({
               min={0}
               value={item.rate}
               onChange={(e) => onUpdate(item.id, 'rate', e.target.value)}
-              placeholder="Rate"
+              placeholder={t('items.rate')}
               className="h-10"
             />
             <Button type="button" variant="destructive" onClick={() => onRemove(item.id)} className="h-10 rounded-xl">
               <Trash2 className="size-4" />
-              Hapus
+              {t('items.delete')}
             </Button>
             <Button type="button" variant="outline" onClick={() => onDuplicate(item.id)} className="h-10 rounded-xl">
               <Copy className="size-4" />
-              Duplikat
+              {t('items.duplicate')}
             </Button>
             <div className="line-total">{formatIdr(item.quantity * item.rate)}</div>
           </div>

@@ -1,5 +1,5 @@
 import { Textarea } from '@/components/ui/textarea'
-
+import { useLanguage } from '@/lib/LanguageContext'
 import type { InvoiceState } from '../types'
 
 type NotesSectionProps = {
@@ -8,9 +8,11 @@ type NotesSectionProps = {
 }
 
 export function NotesSection({ notes, onChange }: NotesSectionProps) {
+  const { t } = useLanguage()
+
   return (
     <label>
-      Catatan
+      {t('notes')}
       <Textarea value={notes} onChange={(e) => onChange(e.target.value)} rows={3} className="min-h-24" />
     </label>
   )

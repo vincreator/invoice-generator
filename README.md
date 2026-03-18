@@ -24,7 +24,8 @@ A modern, web-based invoice generator application built with React and TypeScrip
 - 📋 Add notes and payment terms
 - 👁️ Real-time invoice preview
 - 📄 Export to PDF format
-- 🎨 Modern, responsive UI design
+- � **Bilingual Support** (English & Indonesian)
+- �🎨 Modern, responsive UI design
 - ✅ Form validation and error handling
 - 🔧 Toolbar with quick actions
 
@@ -83,6 +84,15 @@ Check code quality with ESLint:
 ```bash
 npm run lint
 ```
+
+## Language Support
+
+The application supports both **English** and **Indonesian** languages:
+
+- **Language Switcher**: Located at the top of the application, click to toggle between English and Indonesian
+- **Persistent Language**: Your language preference is saved in browser local storage
+- **Full Translation**: All UI elements, invoice fields, validation messages, and buttons are translated
+- **Invoice Format**: Invoices automatically adjust all text based on the selected language
 
 ## Available Scripts
 

@@ -1,9 +1,18 @@
-export const STATUS_OPTIONS = [
+export const STATUS_OPTIONS_ID = [
   'Menunggu Pembayaran',
   'Dibayar Sebagian',
   'Lunas',
   'Jatuh Tempo',
 ] as const
+
+export const STATUS_OPTIONS_EN = [
+  'Pending Payment',
+  'Partially Paid',
+  'Paid',
+  'Overdue',
+] as const
+
+export const STATUS_OPTIONS = STATUS_OPTIONS_ID
 
 export type InvoiceStatus = (typeof STATUS_OPTIONS)[number]
 

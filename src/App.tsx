@@ -10,6 +10,7 @@ import { ItemsSection } from '@/features/invoice/components/ItemsSection'
 import { NotesSection } from '@/features/invoice/components/NotesSection'
 import { PaymentSection } from '@/features/invoice/components/PaymentSection'
 import { ValidationNotice } from '@/features/invoice/components/ValidationNotice'
+import { useLanguage } from '@/lib/LanguageContext'
 import type { InvoiceItem, InvoiceState } from '@/features/invoice/types'
 import {
   STORAGE_KEY,
@@ -21,6 +22,8 @@ import {
 } from '@/features/invoice/utils'
 
 function App() {
+  const { t } = useLanguage()
+  
   const [invoice, setInvoice] = useState<InvoiceState>(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (!saved) return createDefaultState()
@@ -54,19 +57,19 @@ function App() {
 
   const validationErrors = useMemo(() => {
     const errors: string[] = []
-    if (!invoice.invoiceNumber.trim()) errors.push('Nomor invoice wajib diisi.')
-    if (!invoice.billTo.trim()) errors.push('Nama pihak yang ditagihkan wajib diisi.')
+    if (!invoice.invoiceNumber.trim()) errors.push(t('validation.invoiceNumberRequired'))
+    if (!invoice.billTo.trim()) errors.push(t('validation.billToRequired'))
     if (invoice.items.some((item) => !item.description.trim())) {
-      errors.push('Semua item harus punya deskripsi.')
+      errors.push(t('validation.itemsValid'))
     }
     if (invoice.items.some((item) => item.quantity <= 0)) {
-      errors.push('Qty item harus lebih dari 0.')
+      errors.push(t('validation.itemsValid'))
     }
     if (invoice.discount > subtotal + taxAmount) {
-      errors.push('Diskon tidak boleh melebihi subtotal + pajak.')
+      errors.push(t('validation.itemsValid'))
     }
     return errors
-  }, [invoice, subtotal, taxAmount])
+  }, [invoice, subtotal, taxAmount, t])
 
   const updateField = <K extends keyof InvoiceState>(key: K, value: InvoiceState[K]) => {
     setInvoice((prev) => ({ ...prev, [key]: value }))
@@ -178,7 +181,7 @@ function App() {
             onClick={handleExportPdf}
             disabled={isExporting || validationErrors.length > 0}
           >
-            {isExporting ? 'Mengexport PDF...' : 'Export PDF'}
+            {isExporting ? `${t('buttons.export')}...` : t('buttons.export')}
           </Button>
         </div>
       </section>
